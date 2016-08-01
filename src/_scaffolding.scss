@@ -1,0 +1,341 @@
+
+// Left border on all pages
+// -------------------------
+
+.wave-border-wrapper {
+  @include fadeIn(
+    $duration: .5s
+  );
+}
+.wave-border {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: $wave-border-width;
+  height: $wave-border-height;
+  background: $brand-primary;
+  z-index: 999;
+}
+
+.home .wave-border {
+  background: linear-gradient($brand-blue 0%, $brand-navy 25%, $brand-red 50%, $brand-yellow 75%, $brand-blue 100%);
+  animation: rotate 26s infinite linear;
+}
+
+@keyframes rotate {
+  from {
+    background-position: 0 -6000px;
+  }
+  to {
+    background-position: 0 0px;
+  }
+}
+
+// Spacing helpers
+// -------------------------
+
+.m-top-zero { margin-top: 0 !important; }
+.m-top-single { margin-top: $line-height-computed !important; }
+.m-top-single-negative { margin-top: -($line-height-computed) !important; }
+.m-top-double { margin-top: ($line-height-computed * 2) !important; }
+.m-top-double-negative { margin-top: -($line-height-computed * 2) !important; }
+.m-bottom-zero { margin-bottom: 0 !important; }
+.m-bottom-single { margin-bottom: $line-height-computed !important; }
+.m-bottom-single-negative { margin-bottom: -($line-height-computed) !important; }
+.m-bottom-double { margin-bottom: ($line-height-computed * 2) !important; }
+.m-bottom-double-negative { margin-bottom: -($line-height-computed * 2) !important; }
+
+// Change float direction at breakpoint
+// -------------------------
+
+.pull-left-right-sm {
+  float: left !important;
+
+  @media (min-width: $screen-sm-min) {
+    float: right !important;
+  }
+}
+
+.pull-right-left-sm {
+  float: right !important;
+
+  @media (min-width: $screen-sm-min) {
+    float: left !important;
+  }
+}
+
+// Full Width Sections
+// -------------------------
+
+.full-bleed {
+  position: relative;
+  margin-top: ($line-height-computed * 2);
+  margin-bottom: ($line-height-computed * 3);
+  padding-top: ($line-height-computed * 2);
+  padding-bottom: ($line-height-computed * 4.25);
+  -webkit-font-smoothing: antialiased;
+
+  // Margin/padding breakpoints
+  @media (min-width: $screen-lg-min) {
+    margin-top: ($line-height-computed * 2.5);
+    margin-bottom: ($line-height-computed * 3.5);
+    padding-top: ($line-height-computed * 3);
+    padding-bottom: ($line-height-computed * 4.5);
+  }
+  @media (min-width: $screen-hd-min) {
+    margin-top: ($line-height-computed * 3);
+    margin-bottom: ($line-height-computed * 4);
+    padding-top: ($line-height-computed * 3.5);
+    padding-bottom: ($line-height-computed * 5);
+  }
+
+  // Skew that stuff, son!
+  &:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: skewY(-5deg);
+    background-color: $brand-navy;
+    border: 1px solid $brand-navy;
+    content: '';
+
+    @media (min-width: $screen-xs-min) {
+      transform: skewY(-4deg);
+    }
+
+    @media (min-width: $screen-sm-min) {
+      transform: skewY(-3deg);
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 { color: $brand-blue; }
+
+  p,
+  ol,
+  ul,
+  h6 { color: $brand-white; }
+
+  blockquote {
+    color: $brand-white;
+    border-left-color: $brand-yellow;
+
+    footer {
+      color: $brand-white;
+    }
+  }
+
+  // Change icon color when in the
+  // full-bleed section
+  .icon-outdent { color: $brand-white }
+
+  // background image with dark overlay
+  &.background {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &:before {
+      transform: skewY(0deg);
+      background-color: rgba(43,46,60,.95);
+      border: 0;
+    }
+
+    // .mask-top {
+    //   position: absolute;
+    //   top: -2px;
+    //   left: 0;
+    //   width: 100%;
+    //   background-size: 100% auto;
+    //   background-repeat: no-repeat;
+    //   background-position: 0 0;
+    //   background-image: url('data:image/svg+xml;utf8,<svg id="angledMaskTop" width="1432" height="100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polygon fill="#FFFFFF" points="0 0 0 100 1432 25 1432 0"/></svg>');
+    // }
+    //
+    // .mask-bottom {
+    //   position: absolute;
+    //   bottom: -2px;
+    //   left: 0;
+    //   width: 100%;
+    //   background-size: 100% auto;
+    //   background-repeat: no-repeat;
+    //   background-position: 0 0;
+    //   background-image: url('data:image/svg+xml;utf8,<svg id="angledMaskBottom" width="1432" height="100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polygon fill="#FFFFFF" points="0 75 0 100 1432 100 1432 0"></polygon></svg>');
+    // }
+
+    .angled-mask-top {
+      position: absolute;
+      top: -2px;
+      left: 0;
+      width: 100%;
+    }
+
+    .angled-mask-bottom {
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+    }
+
+    padding-top: ($line-height-computed * 5);
+    padding-bottom: ($line-height-computed * 5);
+
+    @media (min-width: $screen-xs-min) {
+      padding-top: ($line-height-computed * 6);
+      padding-bottom: ($line-height-computed * 6);
+    }
+
+    @media (min-width: $screen-sm-min) {
+      padding-top: ($line-height-computed * 7);
+      padding-bottom: ($line-height-computed * 7);
+    }
+
+    @media (min-width: $screen-md-min) {
+      padding-top: ($line-height-computed * 8);
+      padding-bottom: ($line-height-computed * 8);
+    }
+
+    @media (min-width: $screen-lg-min) {
+      padding-top: ($line-height-computed * 9);
+      padding-bottom: ($line-height-computed * 9);
+    }
+  }
+}
+
+// Pretty boxes with thumbnails and red overlay
+.boxy-thingy {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 250px;
+  margin-bottom: $line-height-computed;
+  color: $brand-white;
+  font-family: $font-family-serif;
+  font-weight: normal;
+  text-align: center;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  @include remove-anchor-border;
+
+  &.narrow { height: 150px }
+
+  &:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    content: '';
+    background-color: rgba(247,87,87,.85);
+  }
+
+  .icon {
+    position: relative;
+
+    &::before { font-size: 36px }
+
+    + .boxy-thingy-text {
+      font-size: 24px;
+    }
+  }
+
+  .boxy-thingy-text {
+    position: relative;
+    display: block;
+    font-size: 28px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  @media (min-width: $screen-lg-min) {
+    .boxy-thingy-text {
+      font-size: 36px;
+    }
+  }
+}
+
+a.boxy-thingy {
+
+  &:hover,
+  &:focus {
+    color: $brand-navy;
+
+    // &::before {
+    //   height: 0;
+    // }
+  }
+}
+
+
+// Using this for the grey band on homepage with recognitions, awards, etc.
+.full-bleed-grey {
+  background-color: #f9f9fa;
+}
+
+.flex-align-middle {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  @media (min-width: $screen-md-min) {
+    flex-wrap: nowrap;
+  }
+}
+
+// Need a full bleed with no skew?
+// Add .no-angle after .full-bleed
+.no-angle {
+  padding-top:    ($line-height-computed * 2);
+  padding-bottom: ($line-height-computed * 2);
+
+  &:before { transform: skewY(0) }
+}
+
+// Used to place an image behind a full-bleed section
+.vertical-bleed {
+
+  &.behind-top {
+    margin-top: -($line-height-computed);
+    z-index: 0;
+  }
+
+  &.behind-bottom {
+    margin-bottom: -($line-height-computed);
+    z-index: 0;
+  }
+
+  &.above-top {
+    margin-top: 0;
+    z-index: 1;
+  }
+
+  &.above-bottom {
+    margin-bottom: 0;
+    z-index: 1;
+  }
+
+  @media (min-width: $screen-xs-min) {
+    &.behind-top { margin-top: -($line-height-computed * 2); }
+    &.behind-bottom { margin-bottom: -($line-height-computed * 2); }
+  }
+
+  @media (min-width: $screen-sm-min) {
+    &.behind-top { margin-top: -($line-height-computed * 3); }
+    &.behind-bottom { margin-bottom: -($line-height-computed * 3); }
+  }
+
+  @media (min-width: $screen-md-min) {
+    &.behind-top { margin-top: -($line-height-computed * 4); }
+    &.behind-bottom { margin-bottom: -($line-height-computed * 4); }
+  }
+}

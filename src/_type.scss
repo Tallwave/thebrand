@@ -1,0 +1,272 @@
+//
+// Typography
+// --------------------------------------------------
+
+
+// Headings
+// -------------------------
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  margin-top: $line-height-computed;
+  margin-bottom: $line-height-computed;
+
+  span {
+    color: $brand-red;
+  }
+
+  small {
+    padding-left: 10px;
+  }
+}
+
+h1, h2, h3, h4,
+.h1, .h2, .h3, .h4 {
+  font-family: $font-family-serif;
+}
+
+h5, h6,
+.h5, .h6 {
+  font-family: $font-family-sans-serif;
+}
+
+h1,
+.h1 {
+  margin-bottom: ($line-height-computed * 2);
+  color: $brand-navy;
+}
+
+h2,
+.h2 {
+  color: $gray-darker;
+}
+
+h3,
+.h3 {
+  color: $gray-dark;
+}
+
+h4,
+.h4 {
+  color: $gray;
+}
+
+h5,
+.h5 {
+  color: $gray-lighter;
+}
+
+h6,
+.h6 {
+  color: $gray;
+  font-style: italic;
+}
+
+// Heading link hovers
+// -------------------------
+
+.h1 a,
+h1 a,
+.h2 a,
+h2 a,
+.h3 a,
+h3 a,
+.h4 a,
+h4 a,
+.h5 a,
+h5 a,
+.h6 a,
+h6 a {
+  &:hover { color: $brand-blue }
+}
+
+// Underlined class: styled for use with an H3.
+// Add in some declarations for other sizes if necessary.
+.underlined {
+  padding-bottom: 13px;
+  border-bottom: 3px solid $brand-red;
+}
+
+// Page headers
+// -------------------------
+
+.page-header {
+  margin: 0;
+  padding: 0;
+  border-bottom: 0;
+
+  h1,
+  .h1 {
+    font-size: 36px;
+
+    @media (min-width: $screen-sm-min) {
+      margin-bottom: ($line-height-computed * 3);
+      font-size: 48px;
+    }
+  }
+
+  h2,
+  .h2 {
+    font-size: 24px;
+
+    &.stand-out .icon:before { font-size: 100% }
+
+    @media (min-width: $screen-sm-min) {
+      font-size: 36px;
+
+      &.stand-out .icon:before {
+        top: -200%;
+        font-size: 150%;
+      }
+    }
+  }
+}
+
+// Body text
+// -------------------------
+
+p {
+  max-width: ($line-height-computed * 26);
+  margin: 0 0 $line-height-computed;
+}
+
+.lead {
+  max-width: ($line-height-computed * 35);
+  margin-bottom: $line-height-computed;
+  font-size: 18px;
+  line-height:   ($line-height-computed + 13);
+  margin-bottom: ($line-height-computed + 13);
+  color: $gray-darker;
+
+  @media (min-width: $screen-sm-min) {
+    font-size: 24px;
+    line-height:   ($line-height-computed * 2);
+    margin-bottom: ($line-height-computed * 2);
+  }
+}
+
+// Lists
+// -------------------------
+
+ul,
+ol {
+  margin-bottom: $line-height-computed;
+  padding-left: 35px;
+  list-style-position: outside;
+}
+
+ul {
+  list-style-type: none;
+
+  li:before {
+    content: "\25cb";
+    position: absolute;
+    margin-left: -30px;
+    font-size: 30px;
+    line-height: 20px;
+  }
+
+  ul li:before {
+    content: "\002D";
+    font-size: 22px;
+  }
+}
+
+li {
+  max-width: ($line-height-computed * 26);
+}
+
+.list-inline,
+.list-unstyled {
+  @include remove-list-style;
+}
+
+.list-links {
+  @extend .list-unstyled;
+
+  li {
+    margin-bottom: ($line-height-computed / 2);
+  }
+}
+
+.list-double-spaced li {
+  margin-bottom: $line-height-computed;
+}
+
+.list-inline.list-double-spaced {
+  margin-left: -($line-height-computed / 2);
+
+  li {
+    margin-bottom: 0;
+    padding-right: ($line-height-computed / 2);
+    padding-left: ($line-height-computed / 2);
+  }
+}
+
+// Blockquotes
+// -------------------------
+
+blockquote {
+  padding-left: $line-height-computed;
+  padding-right: 0;
+  border-left-width: 3px;
+  font-family: $font-family-serif;
+  font-weight: 300;
+  font-style: italic;
+
+  footer {
+    font-size: $blockquote-font-size;
+    font-weight: 400;
+    font-style: normal;
+
+    cite {
+      font-style: italic;
+    }
+  }
+
+  @media (min-width: $screen-sm-min) {
+    padding-left: ($line-height-computed * 2);
+  }
+}
+
+// Emphasis & misc
+// -------------------------
+
+mark,
+.mark {
+  color: $text-color;
+  background-color: #fffcab;
+}
+
+// Red highlight with icon centered above text
+// -------------------------
+
+.stand-out {
+  position: relative;
+  color: $brand-red;
+
+  .icon:before {
+    display: inline-block;
+    position: relative;
+    width: auto;
+    font-size: 60%;
+    text-align: center;
+
+    @include fadeInDown(
+      $duration: .75s,
+      $delay: 1.35s
+    );
+  }
+
+  @media (min-width: $screen-sm-min) {
+    .icon:before {
+      position: absolute;
+      top: -150%;
+      left: 0;
+      display: block;
+      width: 100%;
+      font-size: 100%;
+      text-align: center;
+    }
+  }
+}
