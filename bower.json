@@ -1,0 +1,26 @@
+{
+  "name": "tallwavebrand",
+  "version": "1.0.0",
+  "authors": [
+    "Scott Bulloch <scott.bulloch@tallwave.com>"
+    "Scott Williams <scott@swilliams.me>",
+  ],
+  "description": "Stylesheets for Tallwave's Brand Guidelines",
+  "main": "src/main.scss",
+  "keywords": [
+    "stylesheets",
+    "brand"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies:": {
+    "bootstrap-sass-official": "3.3.5"
+  }
+}
