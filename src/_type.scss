@@ -237,36 +237,3 @@ mark,
   color: $text-color;
   background-color: #fffcab;
 }
-
-// Red highlight with icon centered above text
-// -------------------------
-
-.stand-out {
-  position: relative;
-  color: $brand-red;
-
-  .icon:before {
-    display: inline-block;
-    position: relative;
-    width: auto;
-    font-size: 60%;
-    text-align: center;
-
-    @include fadeInDown(
-      $duration: .75s,
-      $delay: 1.35s
-    );
-  }
-
-  @media (min-width: $screen-sm-min) {
-    .icon:before {
-      position: absolute;
-      top: -150%;
-      left: 0;
-      display: block;
-      width: 100%;
-      font-size: 100%;
-      text-align: center;
-    }
-  }
-}
