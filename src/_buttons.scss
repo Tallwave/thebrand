@@ -1,0 +1,231 @@
+//
+// Buttons
+// --------------------------------------------------
+
+
+// Base styles
+// -------------------------
+
+.btn {
+  position: relative;
+  font-family: $font-family-serif;
+  font-size: 18px;
+  line-height: $line-height-computed;
+  border: 0;
+  z-index: 0; // so text appears on top of pseudo elements
+  transition: all 200ms ease-in;
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: block;
+    width: auto;
+    height: auto;
+    z-index: -1; // so text appears on top of pseudo elements
+    transition: all 200ms ease-in;
+  }
+}
+
+// Primary
+// -------------------------
+
+.btn-primary {
+
+  &:before {
+    right: 100%;
+    background-color: $brand-blue;
+  }
+
+  &:after {
+    border-width: 0;
+    border-color: $brand-navy;
+    border-style: solid;
+    background-color: transparent;
+  }
+
+  &:focus,
+  &:hover,
+  &:active {
+    color: $brand-navy;
+    background-color: $brand-navy;
+
+    &:before {
+      right: 0;
+    }
+
+    &:after {
+      border-width: $border-width-base;
+    }
+  }
+}
+
+// Secondary & dropdown
+// -------------------------
+
+.btn-secondary,
+.btn-dropdown {
+  color: $brand-navy;
+  background-color: $brand-white;
+
+  &:before {
+    right: 100%;
+    width: auto;
+    height: 100%;
+    background-color: #f9f9f9;
+  }
+
+  &:after {
+    height: 100%;
+    border-width: 1px;
+    border-color: $brand-navy;
+    border-style: solid;
+    background-color: transparent;
+    opacity: 1;
+  }
+
+  .icon {
+    margin-left: 15px;
+  }
+
+  &:focus,
+  &:hover,
+  &:active {
+    color: $brand-navy;
+    background-color: $brand-white;
+
+    &:before {
+      right: 0;
+    }
+
+    &:after {
+      border-width: $border-width-base;
+      border-color: $brand-blue;
+    }
+  }
+}
+
+// Tertiary
+// -------------------------
+
+.btn-tertiary {
+  color: $brand-blue;
+  background-color: $brand-white;
+
+  &:after {
+    top: calc(50% - #{$line-height-computed});
+    width: 10px;
+    height: ($line-height-computed * 2);
+    background-color: $brand-blue;
+  }
+
+  &:focus,
+  &:hover,
+  &:active {
+    color: $brand-blue;
+    background-color: $brand-white;
+
+    &:after {
+      top: 0;
+      height: 100%;
+    }
+  }
+}
+
+// Alternate
+// -------------------------
+
+.btn-alternate {
+  background-color: $brand-yellow;
+
+  &:before {
+    right: 100%;
+    background-color: $brand-danger;
+  }
+
+  &:after {
+    border-width: 0;
+    border-color: $brand-yellow;
+    border-style: solid;
+  }
+
+  &:focus,
+  &:hover,
+  &:active {
+    color: $brand-navy;
+    background-color: $brand-yellow;
+
+    &:before {
+      right: 0;
+    }
+
+    &:after {
+      border-width: $border-width-base;
+    }
+  }
+}
+
+// Off-brand buttons
+// -------------------------
+
+.btn-offbrand {
+  padding-top: 14px;
+  padding-bottom: 14px;
+  font-family: $font-family-sans-serif;
+  color: $brand-navy;
+  font-size: $font-size-base;
+  background-color: $brand-blue;
+
+  &:before {
+    right: 100%;
+    background-color: $brand-navy;
+  }
+
+  &:after {
+    height: 100%;
+    border-width: 1px;
+    border-color: transparent;
+    border-style: solid;
+    background-color: transparent;
+    opacity: 1;
+  }
+
+  &:focus,
+  &:hover,
+  &:active {
+    color: $brand-white;
+
+    &:before {
+      right: 0;
+    }
+
+    &:after {
+      border-color: $brand-white;
+    }
+  }
+}
+
+// Small buttons
+// -------------------------
+
+.btn-sm {
+  padding: 14px 26px 12px;
+  font-size: $font-size-small;
+  line-height: $line-height-computed;
+}
+
+// Block buttons
+// -------------------------
+
+.btn-block {
+  padding-left: 0;
+  padding-right: 0;
+
+  &.btn-tertiary {
+    padding-left: 10px;
+  }
+}

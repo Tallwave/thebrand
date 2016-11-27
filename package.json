@@ -1,0 +1,23 @@
+{
+  "name": "tallwave-brand",
+  "version": "1.0.0",
+  "description": "Brand Styles for Tallwave themed websites",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tallwave/thebrand.git"
+  },
+  "authors": [
+    "Scott Bulloch <scott.bulloch@tallwave.com>",
+    "Paul Van Tuyl <paul.vantuyl@tallwave.com>",
+    "Scott Williams <scott@swilliams.me>"
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tallwave/thebrand/issues"
+  },
+  "homepage": "https://github.com/tallwave/thebrand#readme"
+}
